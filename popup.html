@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TabZen</title>
+  <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="logo">
+        <img src="icons/icon48.png" alt="TabZen Logo">
+        <h1>TabZen</h1>
+      </div>
+      <div class="actions">
+        <button id="settingsBtn" title="Settings">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+        <button id="themeToggleBtn" title="Toggle Dark Mode">
+          <span id="theme-icon">☀️</span>
+        </button>
+      </div>
+    </header>
+    
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search tabs...">
+      <button id="searchBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
+    </div>
+    
+    <div class="tabs-container">
+      <div class="tabs-header">
+        <h2>Current Tabs</h2>
+        <span id="tabCount" class="tab-count">0</span>
+      </div>
+      
+      <div id="tabsList" class="tabs-list">
+        <!-- Tabs will be populated here -->
+        <div class="loading">Loading tabs...</div>
+      </div>
+    </div>
+    
+    <div class="groups-container">
+      <div class="groups-header">
+        <h2>Tab Groups</h2>
+        <div class="dropdown">
+          <button id="createGroupBtn" class="small-btn" title="Create New Group">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="dropdown-content">
+            <a href="#" id="createSelectionGroupBtn">From Selection</a>
+            <a href="#" id="createCustomGroupBtn">Custom Group</a>
+          </div>
+        </div>
+      </div>
+      
+      <div id="groupsList" class="groups-list">
+        <!-- Groups will be populated here -->
+        <div class="loading">Loading groups...</div>
+      </div>
+    </div>
+    
+    <div class="stats-container">
+      <div class="stat">
+        <span id="totalTabsCount">0</span>
+        <label>Total Tabs</label>
+      </div>
+      <div class="stat">
+        <span id="inactiveTabsCount">0</span>
+        <label>Inactive</label>
+      </div>
+      <div class="stat">
+        <span id="groupsCount">0</span>
+        <label>Groups</label>
+      </div>
+    </div>
+    
+    <footer>
+      <button id="organizeBtn" class="primary-btn">Organize Tabs</button>
+      <a href="options.html" target="_blank" class="link-btn">Advanced Settings</a>
+    </footer>
+  </div>
+  
+  <!-- Create Group Modal -->
+  <div id="createGroupModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create Custom Group</h3>
+        <button id="closeModalBtn" class="close-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="groupName">Group Name</label>
+          <input type="text" id="groupName" placeholder="Enter group name">
+        </div>
+        <div class="form-group">
+          <label for="groupColor">Group Color</label>
+          <select id="groupColor">
+            <option value="blue">Blue</option>
+            <option value="cyan">Cyan</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="orange">Orange</option>
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="purple">Purple</option>
+            <option value="grey">Grey</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Select Tabs</label>
+          <div id="tabSelectionList" class="tab-selection-list">
+            <!-- Tabs will be populated here -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelGroupBtn" class="secondary-btn">Cancel</button>
+        <button id="confirmGroupBtn" class="primary-btn">Create Group</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rename Group Modal -->
+  <div id="renameGroupModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Rename Group</h3>
+        <button id="closeRenameModalBtn" class="close-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="renameGroupName">Group Name</label>
+          <input type="text" id="renameGroupName" placeholder="Enter group name">
+        </div>
+        <div class="form-group">
+          <label for="renameGroupColor">Group Color</label>
+          <select id="renameGroupColor">
+            <option value="blue">Blue</option>
+            <option value="cyan">Cyan</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="orange">Orange</option>
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="purple">Purple</option>
+            <option value="grey">Grey</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelRenameBtn" class="secondary-btn">Cancel</button>
+        <button id="confirmRenameBtn" class="primary-btn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

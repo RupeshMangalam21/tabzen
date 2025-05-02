@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 0.3s ease, background-color 0.3s ease;
+    }
+    body.theme-loaded {
+      opacity: 1;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TabZen Settings</title>
+  <link rel="stylesheet" href="styles/options.css">
+</head>
+<body class="theme-loaded">
+  <div id="app">
+    <header>
+      <div class="logo">
+        <img src="icons/icon48.png" alt="TabZen Logo">
+        <h1>TabZen Settings</h1>
+      </div>
+      <button id="themeToggleBtn" title="Toggle Dark Mode">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </header>
+    
+    <main>
+      <section class="settings-section">
+        <h2>General Settings</h2>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="inactiveTimeout">Inactive Tab Timeout</label>
+            <p class="setting-description">Time in minutes before a tab is considered inactive</p>
+          </div>
+          <div class="setting-control">
+            <input type="range" id="inactiveTimeout" min="5" max="60" step="5">
+            <span id="inactiveTimeoutValue">30 minutes</span>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="autoGroup">Auto-group Inactive Tabs</label>
+            <p class="setting-description">Automatically group tabs that haven't been used for a while</p>
+          </div>
+          <div class="setting-control">
+            <label class="toggle">
+              <input type="checkbox" id="autoGroup">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <div class="setting-info">
+            <label for="semanticGrouping">Semantic Tab Grouping</label>
+            <p class="setting-description">Group tabs by their content category (work, social, etc.)</p>
+          </div>
+          <div class="setting-control">
+            <label class="toggle">
+              <input type="checkbox" id="semanticGrouping">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Category Colors</h2>
+        <p class="section-description">Customize colors for different tab categories</p>
+        
+        <div class="color-settings">
+          <div class="color-item">
+            <label for="workColor">Work</label>
+            <select id="workColor" class="color-select">
+              <option value="blue">Blue</option>
+              <option value="cyan">Cyan</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="grey">Grey</option>
+            </select>
+          </div>
+          
+          <div class="color-item">
+            <label for="socialColor">Social</label>
+            <select id="socialColor" class="color-select">
+              <option value="blue">Blue</option>
+              <option value="cyan">Cyan</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="grey">Grey</option>
+            </select>
+          </div>
+          
+          <div class="color-item">
+            <label for="shoppingColor">Shopping</label>
+            <select id="shoppingColor" class="color-select">
+              <option value="blue">Blue</option>
+              <option value="cyan">Cyan</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="grey">Grey</option>
+            </select>
+          </div>
+          
+          <div class="color-item">
+            <label for="entertainmentColor">Entertainment</label>
+            <select id="entertainmentColor" class="color-select">
+              <option value="blue">Blue</option>
+              <option value="cyan">Cyan</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="grey">Grey</option>
+            </select>
+          </div>
+          
+          <div class="color-item">
+            <label for="newsColor">News</label>
+            <select id="newsColor" class="color-select">
+              <option value="blue">Blue</option>
+              <option value="cyan">Cyan</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="grey">Grey</option>
+            </select>
+          </div>
+          
+          <div class="color-item">
+            <label for="otherColor">Other</label>
+            <select id="otherColor" class="color-select">
+              <option value="blue">Blue</option>
+              <option value="cyan">Cyan</option>
+              <option value="green">Green</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="red">Red</option>
+              <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="grey">Grey</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Custom Tab Groups</h2>
+        <p class="section-description">Create and manage your custom tab groups</p>
+        
+        <div id="customGroups" class="custom-groups">
+          <!-- Custom groups will be listed here -->
+        </div>
+        
+        <div class="add-group-form">
+          <input type="text" id="newGroupName" placeholder="New group name">
+          <select id="newGroupColor" class="color-select">
+            <option value="blue">Blue</option>
+            <option value="cyan">Cyan</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="orange">Orange</option>
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="purple">Purple</option>
+            <option value="grey">Grey</option>
+          </select>
+          <button id="addGroupBtn" class="small-btn">Add Group</button>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Keyboard Shortcuts</h2>
+        <p class="section-description">Current keyboard shortcuts for TabZen</p>
+        
+        <div class="shortcut-item">
+          <div class="shortcut-info">
+            <span class="shortcut-name">Open TabZen</span>
+          </div>
+          <div class="shortcut-keys">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd>
+          </div>
+        </div>
+        
+        <div class="shortcut-item">
+          <div class="shortcut-info">
+            <span class="shortcut-name">Search Tabs</span>
+          </div>
+          <div class="shortcut-keys">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Space</kbd>
+          </div>
+        </div>
+        
+        <p class="shortcut-note">
+          To customize shortcuts, visit 
+          <a href="chrome://extensions/shortcuts" target="_blank">chrome://extensions/shortcuts</a>
+        </p>
+      </section>
+    </main>
+    
+    <footer>
+      <button id="saveBtn" class="primary-btn">Save Settings</button>
+      <button id="resetBtn" class="secondary-btn">Reset to Defaults</button>
+    </footer>
+  </div>
+  
+  <script src="options.js" type="module"></script>
+</body>
+</html>
