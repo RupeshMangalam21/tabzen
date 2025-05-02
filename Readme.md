@@ -1,7 +1,7 @@
 # **TabZen - Intelligent Tab Management**  
 *A powerful browser extension for smarter, cleaner, and more productive tab workflows.*
 
-![TabZen Interface - Dark Theme](screenshots/interface-dark.png)  
+![TabZen Interface - Dark Theme](/interface-dark.png)  
 <sub>✨ Light and dark mode with semantic tab grouping support</sub>
 
 ---
@@ -87,7 +87,7 @@ Adjust sensitivity in **Advanced Settings → Auto-Grouping**.
 ## 💬 Support
 
 Found a bug? Have a feature request?  
-👉 [Open an issue](https://github.com/yourusername/tabzen/issues)
+👉 [Open an issue](https://github.com/RupeshMangalam21/tabzen/issues)
 
 ---
 
