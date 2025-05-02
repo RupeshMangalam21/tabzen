@@ -1,5 +1,5 @@
 # **TabZen - Intelligent Tab Management**  
-*A powerful browser extension for smarter, cleaner, and more productive tab workflows.*
+*An Open Source powerful browser extension for smarter, cleaner, and more productive tab workflows.*
 
 ![TabZen Interface - Dark Theme](interface-dark.png)  
 <sub>✨ Light and dark mode with semantic tab grouping support</sub>
@@ -36,6 +36,7 @@
 
 ---
 
+
 ## 💻 Installation
 
 ### 🔧 From Source
@@ -47,7 +48,9 @@
 3. Click **Load Unpacked**
 4. Select the `/root` folder
 
+
 > 🛍️ **Chrome Web Store:** *Coming soon!*
+
 
 ---
 
@@ -70,21 +73,9 @@
 Click **Organize Tabs** to categorize automatically.  
 Adjust sensitivity in **Advanced Settings → Auto-Grouping**.
 
-**Custom Groups:**
-```json
-{
-  "name": "Project Aurora",
-  "color": "purple",
-  "tabs": [
-    "https://github.com/aurora",
-    "https://docs.aurora.dev"
-  ]
-}
-```
-
 ---
 
-## 💬 Support
+## 💬 Support & Contributions
 
 Found a bug? Have a feature request?  
 👉 [Open an issue](https://github.com/RupeshMangalam21/tabzen/issues)
@@ -95,5 +86,6 @@ Found a bug? Have a feature request?
 
 **MIT License**  
 See [LICENSE](LICENSE) for full details.
+
 
 > 🛡️ **Privacy Notice:** TabZen processes **all data locally**. It does **not transmit** any user data externally.
